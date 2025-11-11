@@ -5,12 +5,19 @@ using namespace std;
 
 int main(int argc, char* argv[])
 {
-	task::Task task1("Test Task");
-
+	// Testing the task manager
 	task::TaskManager T1;
-	task::TaskManager T2(task1);
+	task::Task Task1("Task#1");
 
-	std::cout << "TaskManager1: " << T1;
-	std::cout << "TaskManager2: " << T2;
-	std::cout << "Task1: " << task1;
+	T1.addTask("Task#2");
+
+	std::cout << "TaskManager1" << std::endl;
+	std::cout << "------------------------------------------" << std::endl;
+	std::cout << T1 << std::endl;
+
+	T1.addTask("Task#3");
+
+	std::cout << "TaskManager1" << std::endl;
+	std::cout << "------------------------------------------" << std::endl;
+	std::cout << T1 << std::endl;
 }

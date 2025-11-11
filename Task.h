@@ -22,7 +22,7 @@ namespace task {
 		// Friend functions
 		friend std::ostream& operator<<(std::ostream& os, const Task& task)
 		{
-			os << task.m_task << ' ' << (task.m_complete ? "Complete" : "In-Progress") << std::endl;
+			os << "Task: " << task.m_task << " | Current Status: " << (task.m_complete ? "Complete" : "In-Progress") << std::endl;
 			return os;
 		}
 	};

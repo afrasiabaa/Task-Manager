@@ -123,6 +123,23 @@ void TaskManager::addTask(const Task& task)
 		this->m_tasks = newTasks;
 	}
 	
-	++this->m_size;
 	this->m_tasks[this->m_size] = task;
+}
+
+void TaskManager::addTask(const std::string& taskText)
+{
+	if (this->m_size == this->m_capacity)
+	{
+		this->m_capacity += 8;
+
+		Task* newTasks = new Task[m_capacity];
+		for (size_t i = 0; i < this->m_size; ++i)
+			newTasks[i] = m_tasks[i];
+		delete[] this->m_tasks;
+		this->m_tasks = newTasks;
+	}
+
+	const Task task(taskText);
+	this->m_tasks[this->m_size] = task;
+	++this->m_size;
 }

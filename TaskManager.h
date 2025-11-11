@@ -2,6 +2,7 @@
 #define TASK_MANAGER_H
 
 #include <iostream>
+#include <string>
 #include "Task.h"
 
 namespace task
@@ -30,12 +31,20 @@ namespace task
 
 		// Methods
 		void addTask(const Task&);
+		void addTask(const std::string&);
 
 		// Helper functions
 		friend std::ostream& operator<<(std::ostream& os, const TaskManager& taskManager)
 		{
-			for (size_t i = 0; i < taskManager.m_size; ++i)
-				os << taskManager.m_tasks[i] << std::endl;
+			if (!taskManager.m_tasks)
+			{
+				os << "No tasks found." << std::endl;;
+			}
+			else
+			{
+				for (size_t i = 0; i < taskManager.m_size; ++i)
+					os << taskManager.m_tasks[i];
+			}
 			return os;
 		}
 	};
