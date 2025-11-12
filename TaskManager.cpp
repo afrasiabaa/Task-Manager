@@ -107,6 +107,7 @@ TaskManager& TaskManager::operator=(TaskManager&& other) noexcept
 TaskManager::~TaskManager()
 {
 	delete[] this->m_tasks;
+	m_tasks = nullptr;
 }
 
 // Methods
@@ -124,6 +125,7 @@ void TaskManager::addTask(const Task& task)
 	}
 	
 	this->m_tasks[this->m_size] = task;
+	++this->m_size;
 }
 
 void TaskManager::addTask(const std::string& taskText)
